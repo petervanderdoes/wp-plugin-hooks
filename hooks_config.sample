@@ -1,0 +1,5 @@
+MAINFILE=main.php
+_update_version() {
+        sed -i '0,/= Version.*/s/^= Version .*/= Version '$1' =/' $ROOTDIR/readme.txt
+        sed -i '0,/Version.*/s/Version:.*/Version: '$1'/' $ROOTDIR/$MAINFILE
+}
