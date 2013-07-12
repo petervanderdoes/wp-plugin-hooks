@@ -1,8 +1,8 @@
 #!/bin/sh
 REPO_DIR=$(git rev-parse --show-toplevel)
 DOT_GIT_DIR=$(git rev-parse --git-dir)
-if [ "$DOT_GIT_DIR" -eq ".git" ]; then
-	DOT_GIT_DIR = "$REPO_DIR"/$DOT_GIT_DIR
+if [ "$DOT_GIT_DIR" = ".git" ]; then
+	DOT_GIT_DIR="$REPO_DIR"/"$DOT_GIT_DIR"
 fi
 HOOKS_DIR="$DOT_GIT_DIR"/hooks
 . "$HOOKS_DIR"/gitflow-functions
