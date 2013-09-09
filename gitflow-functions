@@ -17,6 +17,8 @@ CROSS=`printf ${RED}'✘'${WHITE}`
 
 # Modules directory
 HOOKS_MODULES_DIR="$HOOKS_DIR"/modules
+#pre_commit_modules="jshint.sh phplint.sh prevent-master-commit.sh prevent-merge-marker-commits.sh"
+pre_commit_modules="prevent-master-commit.sh prevent-merge-marker-commits.sh"
 
 REPO_DIR="$(git rev-parse --show-toplevel 2>/dev/null)"
 if [ ! -f "$REPO_DIR"/.git/hooks_config ]; then
