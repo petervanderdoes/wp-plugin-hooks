@@ -10,10 +10,11 @@ These hooks are used by me for development of WordPress plugins.
  
 ## Installation
 * Clone the repository
-* Create a softlink in your repository .git directory named hooks. If the 
-  directory exists, just delete it.
+* Install using `make`, by default the software will be installed 
+in `/opt/wp-plugin-hooks`.
+* Copy or link the /opt/wp-plugin-hooks to .git/hooks directory in your git repository
 * Copy the file hooks_config.sample to the .git directory, naming it hooks_config.
-* Make the needed adjustments to the hooks_config file.
+* Modify the hooks_config file as needed.
 
 ## Requirements
 * git-flow AVH edition
