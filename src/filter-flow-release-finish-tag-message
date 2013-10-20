@@ -17,7 +17,7 @@ MESSAGE="$1"
 
 # Implement your script here.
 
-MESSAGE=${MESSAGE/%%TAG_VERSION%%/"$2"}
+MESSAGE=`echo ${MESSAGE} | sed "s/%%TAG_VERSION%%/$2/"`
 
 # Return the MESSAGE
 echo "${MESSAGE}"
