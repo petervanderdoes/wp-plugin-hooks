@@ -16,6 +16,9 @@ BRANCH=$3
 
 ROOTDIR=$(git rev-parse --show-toplevel)
 
+# Update the AUTHORS file.
+gitflow_update_authors
+
 # Prepare new version
 # HOOKS_DIR is defined in gitflow-common.
 CURRENT_VERSION=$(gitflow_get_current_version)
