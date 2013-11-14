@@ -97,6 +97,31 @@ gitflow_get_current_version() {
 }
 
 #
+# Create an up to date AUTHORS file
+#
+gitflow_update_authors() {
+	ROOTDIR=$(git rev-parse --show-toplevel)
+	AUTHORS=$(mktemp --suffix=.gitflow)
+
+	# Create an up to date AUTHORS file
+	echo $AUTHORS_HEADER > $AUTHORS
+	git shortlog -ns --no-merges | cut -f2 >> $AUTHORS
+	echo  $AUTHORS_FOOTER >> $AUTHORS
+
+	# Check if the new file is different
+	# If it's not there is no need to copy it and commit
+	diff $AUTHORS $ROOTDIR/AUTHORS > /dev/null 2>&1
+	DIFF=$?
+	if [ $DIFF -ne 0 ]; then
+		cp $AUTHORS $ROOTDIR/AUTHORS
+		git commit AUTHORS -m "Update of the contributers."
+	fi
+	# Clean up
+	rm  $AUTHORS
+}
+
+
+#
 # String contains function
 # $1 haystack
 # $2 Needle
