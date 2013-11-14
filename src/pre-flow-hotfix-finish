@@ -15,6 +15,9 @@ BRANCH=$3
 . "$HOOKS_DIR"/gitflow-functions
 ROOTDIR=$(git rev-parse --show-toplevel)
 
+# Update the AUTHORS file.
+gitflow_update_authors
+
 sed -i '0,/Stable tag: .*/s/^Stable tag: .*/Stable tag: '$VERSION'/' $ROOTDIR/readme.txt
 
 gitflow_update_version $VERSION
