@@ -19,8 +19,7 @@ git checkout $DEVELOP_BRANCH
 TMPFILE=$(mktemp --suffix=.gitflow)
 
 gitflow_set_major_minor $VERSION
-AVH_MINOR=$(($AVH_MINOR+1))
-AVH_PATCH_LEVEL=0
+AVH_PATCH_LEVEL=$(($AVH_PATCH_LEVEL+1))
 gitflow_set_dev_release
 gitflow_build_version
 
