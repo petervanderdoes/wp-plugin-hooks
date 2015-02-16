@@ -104,9 +104,9 @@ gitflow_update_authors() {
 	AUTHORS=$(mktemp --suffix=.gitflow)
 
 	# Create an up to date AUTHORS file
-	echo $AUTHORS_HEADER > $AUTHORS
+	echo ${AUTHORS_HEADER} > $AUTHORS
 	git shortlog -ns --no-merges | cut -f2 >> $AUTHORS
-	echo  $AUTHORS_FOOTER >> $AUTHORS
+	echo ${AUTHORS_FOOTER} >> $AUTHORS
 
 	# Check if the new file is different
 	# If it's not there is no need to copy it and commit
